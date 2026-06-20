@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游体育 · 再度关注</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f4f6;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 32px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 1080px;
+            width: 100%;
+        }
+
+        /* 卡片系统 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9edf0;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        /* hero 区域 —— 带有微妙渐变和叙述感 */
+        .hero {
+            background: #fafbfc;
+            border: 1px solid #e1e6ea;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+            padding: 48px 32px 40px;
+            text-align: center;
+            border-radius: 24px;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 520;
+            letter-spacing: -0.01em;
+            color: #1d2b38;
+            margin-bottom: 16px;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #526a7a;
+            max-width: 600px;
+            margin: 0 auto 24px;
+            font-weight: 380;
+        }
+
+        .hero .note {
+            background: #edf2f5;
+            display: inline-block;
+            padding: 12px 26px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            border: 1px solid #d6dee4;
+            color: #2a4050;
+        }
+
+        .hero .note i {
+            font-style: normal;
+            background: #d4dee6;
+            padding: 0 8px;
+            border-radius: 30px;
+            color: #1f2f3b;
+        }
+
+        /* 两栏 / 三栏布局 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 20px;
+            border: 1px solid #e4e9ee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            margin-bottom: 12px;
+            color: #1a2b38;
+            border-left: 3px solid #94abb8;
+            padding-left: 12px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #3f5564;
+        }
+
+        /* 说明区 – 短文风格 */
+        .essay {
+            padding: 32px 28px;
+        }
+
+        .essay h2 {
+            font-size: 1.5rem;
+            font-weight: 480;
+            margin-bottom: 18px;
+            color: #1f3241;
+        }
+
+        .essay p {
+            margin-bottom: 18px;
+            max-width: 780px;
+        }
+
+        .essay .tag {
+            display: inline-block;
+            background: #eaeef2;
+            border-radius: 30px;
+            padding: 4px 18px;
+            font-size: 0.8rem;
+            color: #3e5b6b;
+            border: 1px solid #d0dadf;
+            margin-top: 4px;
+        }
+
+        /* FAQ 摘要 — 紧凑卡片 */
+        .faq-summary {
+            background: #f9fbfc;
+            border: 1px solid #e2e8ec;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin-bottom: 28px;
+        }
+
+        .faq-summary h3 {
+            font-weight: 480;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: #1b2c39;
+        }
+
+        .faq-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8ec;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1f3544;
+        }
+
+        .faq-a {
+            color: #4d6677;
+            font-size: 0.93rem;
+            margin-top: 4px;
+        }
+
+        /* 底部链接 —— 安静且有存在感 */
+        .footer-links {
+            text-align: center;
+            padding: 24px 16px;
+            border-top: 1px solid #dce3e8;
+            margin-top: 12px;
+        }
+
+        .footer-links a {
+            color: #3b5c6e;
+            text-decoration: none;
+            border-bottom: 1px solid #bccad3;
+            padding-bottom: 2px;
+            font-weight: 400;
+            transition: border-color 0.15s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #1f3a48;
+            color: #1a2d3a;
+        }
+
+        .footer-links .sep {
+            display: inline-block;
+            margin: 0 18px;
+            color: #b2c0c9;
+        }
+
+        .footer-note {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: #607888;
+        }
+
+        /* 响应式 */
+        @media (max-width: 800px) {
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 20px 14px;
+            }
+            .card, .hero, .essay, .faq-summary {
+                padding: 24px 18px;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 区：再次访问与收藏的点 -->
+    <div class="hero">
+        <h1>再次回到这里</h1>
+        <div class="sub">
+            有些页面你曾打开，后来消失在标签页深处。<br>
+            也许你只是随手收藏，等一个合适的下午重新打开。
+        </div>
+        <div class="note">
+            <i>▸</i> 如果你已经来过，不妨把它留在收藏夹里
+        </div>
+    </div>
+
+    <!-- 优势区：三张特征卡片，从持续关注角度 -->
+    <div class="grid-3">
+        <div class="feature-card">
+            <h3>常看常新</h3>
+            <p>内容保持更新，但节奏克制。不需要每日刷新，偶尔回来，总有些不一样的东西等着你。</p>
+        </div>
+        <div class="feature-card">
+            <h3>不打扰的提醒</h3>
+            <p>没有弹窗推送，没有冗余通知。收藏之后，等你想起时再来，页面依然安静地在那里。</p>
+        </div>
+        <div class="feature-card">
+            <h3>一致的体验</h3>
+            <p>从第一次访问到第十次，界面、结构和节奏保持连贯。熟悉感本身也是一种舒适。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：从“再次访问”切入，夹带链接 -->
+    <div class="card essay">
+        <h2>收藏夹里的坐标</h2>
+        <p>
+            我们往往高估了记住一个网址的能力，却低估了收藏夹的价值。某个深夜或者周末午后，你翻到之前存下的页面，
+            点进去，发现它还在，没有变样，内容恰好也是你此刻想看的——这样的体验并不常有。
+        </p>
+        <p>
+            正因如此，如果你觉得这里有值得再看一眼的东西，不妨现在就把它收进浏览器的书签栏。
+            下次想找点熟悉又不重复的内容时，直接打开 <a href="https://portal-jiuyousports.com">九游体育</a> 就好。
+            它不会变成另一个样子，但也不会一成不变。
+        </p>
+        <span class="tag">持续关注 · 偶尔回来</span>
+    </div>
+
+    <!-- FAQ 摘要（短问答，克制语气） -->
+    <div class="faq-summary">
+        <h3>也许你会想问</h3>
+        <div class="faq-item">
+            <div class="faq-q">— 我需要注册或登录吗？</div>
+            <div class="faq-a">不需要。直接浏览即可。收藏之后也不需要任何身份验证。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">— 内容多久更新一次？</div>
+            <div class="faq-a">没有固定频率。保持适度更新，但不追求日更。适合偶尔回访的节奏。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">— 我把链接丢了，还能找到这里吗？</div>
+            <div class="faq-a">建议现在就收藏。或者记住一个简单的特征：在浏览器里搜索“九游体育”通常也可以。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接：自然嵌入，带有细微文案 -->
+    <div class="footer-links">
+        <a href="https://portal-jiuyousports.com">九游体育</a>
+        <span class="sep">·</span>
+        <span style="color:#526f80;">收藏即重逢</span>
+        <span class="sep">·</span>
+        <span style="color:#526f80;">再次访问</span>
+        <div class="footer-note">
+            把页面加入书签，下次回来就不必重新寻找。
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
