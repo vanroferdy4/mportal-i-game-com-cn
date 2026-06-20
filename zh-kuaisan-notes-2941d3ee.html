@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字选择与概率 · 快三平台介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f3ef;
+            color: #2a2a2e;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #b5543d;
+            text-decoration: none;
+            border-bottom: 1px dotted #b5543d88;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #873f2d;
+            border-bottom-color: #873f2d;
+        }
+
+        /* 深色 hero 区 —— 带细颗粒纹理 */
+        .hero {
+            background: #1c1b1f;
+            background-image: radial-gradient(circle at 20% 30%, #2f2d33 1px, transparent 1px);
+            background-size: 24px 24px;
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            color: #eae4db;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 420;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            color: #f3ede5;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            max-width: 540px;
+            margin: 0 auto 2rem;
+            color: #cbbfb2;
+            line-height: 1.7;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            border: 1px solid #b5543d88;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #dbb9a8;
+            letter-spacing: 0.03em;
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+        }
+
+        section {
+            padding: 2.8rem 0 1.8rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            margin-bottom: 1.4rem;
+            color: #252429;
+            border-left: 4px solid #b5543d;
+            padding-left: 1rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.6rem 1.4rem 1.4rem;
+            box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 450;
+            margin-bottom: 0.7rem;
+            color: #1e1d22;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3e3c44;
+        }
+
+        .highlight {
+            background: #f0ebe4;
+            border-radius: 14px;
+            padding: 1.8rem 1.6rem;
+            margin: 0.8rem 0 1.6rem;
+        }
+
+        .highlight p {
+            font-size: 1rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem 2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd8d0;
+            padding-bottom: 0.9rem;
+        }
+
+        .faq-item .q {
+            font-weight: 460;
+            color: #2c292f;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.93rem;
+            color: #555259;
+        }
+
+        .footnote {
+            border-top: 1px solid #d6d0c7;
+            padding: 2rem 0 2.5rem;
+            margin-top: 0.6rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5a5650;
+        }
+
+        .footnote a {
+            font-weight: 450;
+        }
+
+        .inline-link {
+            border-bottom: none;
+            font-weight: 450;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 2rem 0 1rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 5rem 2rem 3.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- hero 深色区 -->
+<header class="hero">
+    <div class="tagline">概率 · 选择 · 观察</div>
+    <h1>关于数字组合与节奏</h1>
+    <p class="sub">
+        在三个骰子的排列中寻找理解 —— 概率分布、频率与策略之间的关系。
+        <a href="https://zh-kuaisan.com" class="inline-link" style="color:#dbb9a8; border-bottom:1px solid #b5543d88;">快三平台</a> 
+        为爱好者提供了一种持续的参考与交流空间。
+    </p>
+</header>
+
+<main class="container">
+
+    <!-- 介绍性段落：自然切入 -->
+    <section>
+        <h2 class="section-title">从骰面说起</h2>
+        <div class="highlight">
+            <p>三个六面骰子，总计 216 种等可能结果。点数之和从 3 到 18，每个和值对应的组合数并不相同 —— 例如 10 和 11 各有 27 种组合，而 3 和 18 仅各有一种。这种非对称分布构成了许多策略讨论的基础。了解基础概率有助于形成更理性的参与观念，避免盲目跟随直觉。</p>
+        </div>
+        <div class="two-col">
+            <div class="card">
+                <h3>和值分布参考</h3>
+                <p>中心值（9–12）的出现概率最高，接近 48.6%。两端的极小与极大值出现频率较低。掌握这一阶梯可以帮助参与者建立合理的预期。</p>
+            </div>
+            <div class="card">
+                <h3>组合与节奏</h3>
+                <p>不同的组合形态（如三同号、二同号、不同号）各自对应不同的理论概率。许多长期观察者会记录趋势，但每一次投掷都是独立事件。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 优势与场景 —— 更偏向理解与工具 -->
+    <section>
+        <h2 class="section-title">作为参考工具的特点</h2>
+        <div class="two-col">
+            <div class="card">
+                <h3>历史数据与图表</h3>
+                <p>在 <a href="https://zh-kuaisan.com">快三平台</a> 上可以查阅最近数百期的开奖号码、和值走势及冷热统计。图表以直观方式展示频率，但请注意过去结果并不影响未来。</p>
+            </div>
+            <div class="card">
+                <h3>多视角筛选</h3>
+                <p>按照和值范围、跨度、奇偶等维度进行筛选，用于回测或观察特定模式。适合希望系统性回顾的用户。</p>
+            </div>
+            <div class="card">
+                <h3>没有公式能预测</h3>
+                <p>任何声称“必中”“稳赚”的方法都缺乏依据。平台侧重提供数据透明，而非承诺收益。理性对待每一次选择。</p>
+            </div>
+            <div class="card">
+                <h3>社区讨论</h3>
+                <p>用户之间可以交流观察心得、记录方法，但请注意信息甄别。平台本身不介入玩家之间的策略建议。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区：谈概率与心态 -->
+    <section>
+        <h2 class="section-title">关于概率与心态</h2>
+        <div style="background: #fff; border-radius: 14px; padding: 1.6rem 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.02);">
+            <p style="margin-bottom: 0.8rem; font-size: 1rem;">
+                骰子游戏最迷人的地方在于：它既包含了可计算的数学结构，又保留了不可预测的随机性。任何长期参与的人都应该建立两个基本认知：第一，每一轮都是独立的，没有“该出了”的必然；第二，资金管理比选号技巧更重要。平台上的工具可以辅助记录，但无法改变基础概率。
+            </p>
+            <p style="font-size: 0.95rem; color: #4a474e;">
+                <a href="https://zh-kuaisan.com">快三平台</a> 提供的走势图、遗漏数据等，本质上都是为了帮助参与者保持对频率的感知，而非诱导高频投注。建议每次参与前设定时间与金额边界，将其视为一种带有策略的休闲活动。
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+        <h2 class="section-title">常见问题摘要</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="q">问：三个骰子总和为 10 的概率是多少？</div>
+                <div class="a">理论概率约为 12.5%（27/216），是所有单点和值中概率最高的之一（与 11 相同）。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">问：号码“豹子”（三同号）多久出现一次？</div>
+                <div class="a">每个三同号（111～666）概率为 1/216，六个豹子合计概率约 2.78%。属于低频率事件。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">问：如何正确看待“长龙”（连续同一形态）？</div>
+                <div class="a">连续出现同一形态的概率虽然低，但在大量样本中必然会发生。不应当将其视为“反转信号”。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">问：平台上的数据多久更新？</div>
+                <div class="a">通常保持实时同步，具体以页面显示为准。历史数据可供回溯分析。</div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- 底部 -->
+<footer class="footnote container">
+    <p>基于公开数据与概率常识的交流页面 · <a href="https://zh-kuaisan.com">快三平台</a> · 请理性参考</p>
+    <p style="margin-top: 0.6rem; font-size: 0.82rem; color: #777267;">本站内容不构成任何投注建议，所有数值仅供学习与观察使用。</p>
+</footer>
+
+</body>
+</html>
